@@ -1,0 +1,211 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"width": 1,
+			"row": {
+				"3": 5,
+				"4": 5
+			},
+			"col": {
+				"3": 1,
+				"4": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "Users with at least one Like",
+						"value": "datasources[\"Users with Likes\"][\"percentage\"]",
+						"units": "%",
+						"min_value": 0,
+						"max_value": 100
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 1,
+				"4": 1
+			},
+			"col": {
+				"3": 1,
+				"4": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Amount of users",
+						"size": "regular",
+						"value": "datasources[\"Users with Likes\"][\"userCount\"]",
+						"animate": true
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 7,
+				"4": 1
+			},
+			"col": {
+				"3": 2,
+				"4": 2
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "Likes that have matched",
+						"value": "datasources[\"Likes that have matched\"][\"percentageOfMatched\"]",
+						"units": "%",
+						"min_value": 0,
+						"max_value": 100
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 2
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Likes",
+						"size": "regular",
+						"value": "datasources[\"Likes that have matched\"][\"likesAmount\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Matches",
+						"size": "regular",
+						"value": "datasources[\"Likes that have matched\"][\"matchesAmount\"]",
+						"animate": true
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 3
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Likes",
+						"size": "regular",
+						"value": "datasources[\"Likes vs Dislikes\"][\"unique\"][\"likes\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Dislikes",
+						"size": "regular",
+						"value": "datasources[\"Likes vs Dislikes\"][\"unique\"][\"dislikes\"]",
+						"animate": true
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 7
+			},
+			"col": {
+				"3": 3
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "Percentage of Swipes that are Likes",
+						"value": "datasources[\"Likes vs Dislikes\"][\"unique\"][\"percentageOfLikes\"]",
+						"units": "%",
+						"min_value": 0,
+						"max_value": 100
+					}
+				}
+			]
+		}
+	],
+	"datasources": [
+		{
+			"name": "Users with Likes",
+			"type": "JSON",
+			"settings": {
+				"url": "http://metrics.getwildcard.co/1",
+				"use_thingproxy": true,
+				"refresh": 60,
+				"method": "GET",
+				"headers": [
+					{
+						"name": "x-auth-token",
+						"value": "e9b74f95b320fc7ddad6f6adb3d8a18e"
+					}
+				]
+			}
+		},
+		{
+			"name": "Likes that have matched",
+			"type": "JSON",
+			"settings": {
+				"url": "http://metrics.getwildcard.co/2",
+				"use_thingproxy": true,
+				"refresh": 60,
+				"method": "GET",
+				"headers": [
+					{
+						"name": "x-auth-token",
+						"value": "e9b74f95b320fc7ddad6f6adb3d8a18e"
+					}
+				]
+			}
+		},
+		{
+			"name": "Likes vs Dislikes",
+			"type": "JSON",
+			"settings": {
+				"url": "http://metrics.getwildcard.co/3",
+				"use_thingproxy": true,
+				"refresh": 60,
+				"method": "GET",
+				"headers": [
+					{
+						"name": "x-auth-token",
+						"value": "e9b74f95b320fc7ddad6f6adb3d8a18e"
+					}
+				]
+			}
+		}
+	],
+	"columns": 3
+}
